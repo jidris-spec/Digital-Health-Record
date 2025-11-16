@@ -1,7 +1,7 @@
 // src/components/KpiRow.jsx
 import { Grid, Skeleton } from "@mui/material";
 import { People, Event, Science } from "@mui/icons-material";
-import KpiCard from "./kpiCard.jsx";
+import KpiCard from "./KpiCard.jsx";
 
 export default function KpiRow({ loading, kpis }) {
   return (
@@ -15,8 +15,9 @@ export default function KpiRow({ loading, kpis }) {
             icon={<People />}
             label="Patients"
             value={kpis.patients}
-            tooltip="Total patients in your panel"
+            tooltip="Total unique patients currently under care"
             color="secondary"
+            trend={+2}          // e.g. +2 more than yesterday
           />
         )}
       </Grid>
@@ -32,6 +33,7 @@ export default function KpiRow({ loading, kpis }) {
             value={kpis.todaysAppts}
             tooltip="Appointments scheduled for today"
             color="primary"
+            trend={-1}          // e.g. 1 fewer than yesterday
           />
         )}
       </Grid>
@@ -47,6 +49,7 @@ export default function KpiRow({ loading, kpis }) {
             value={kpis.pendingLabs}
             tooltip="Lab results awaiting review"
             color="success"
+            trend={+3}          // e.g. 3 more pending labs
           />
         )}
       </Grid>

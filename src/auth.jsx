@@ -1,5 +1,5 @@
 export const auth = {
-  isAuthed() {
+  isAuthenticated() {
     return !!sessionStorage.getItem("token");
   },
   login(token) {

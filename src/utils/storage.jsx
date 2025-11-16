@@ -1,39 +1,46 @@
-// src/utils/storage.js
+// src/utils/storage.jsx
 
-// Load appointments from localStorage
+// --- Appointments storage ---
+const APPTS_KEY = "dh_appointments";
+
 export function loadAppts() {
-  return read("appointments", []);
+  try {
+    return JSON.parse(localStorage.getItem(APPTS_KEY)) || [];
+  } catch {
+    return [];
+  }
 }
 
-// Save appointments
-export function saveAppts(appointments) {
-  write("appointments", appointments);
+export function saveAppts(list) {
+  localStorage.setItem(APPTS_KEY, JSON.stringify(list));
 }
 
-// Load activity
+// --- Activity storage ---
+const ACTIVITY_KEY = "dh_activity";
+
 export function loadActivity() {
-  return read("activity", []);
-}
-
-// Save activity
-export function saveActivity(activity) {
-  write("activity", activity);
-}
-
-function read(key, fallback) {
   try {
-    const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : fallback;
-  } catch (e) {
-    console.error("Error reading from storage:", e);
-    return fallback;
+    return JSON.parse(localStorage.getItem(ACTIVITY_KEY)) || [];
+  } catch {
+    return [];
   }
 }
 
-function write(key, value) {
+export function saveActivity(list) {
+  localStorage.setItem(ACTIVITY_KEY, JSON.stringify(list));
+}
+
+// --- Patients storage ---
+const PATIENTS_KEY = "dh_patients";
+
+export function loadPatients() {
   try {
-    localStorage.setItem(key, JSON.stringify(value));
-  } catch (e) {
-    console.error("Error writing to storage:", e);
+    return JSON.parse(localStorage.getItem(PATIENTS_KEY)) || [];
+  } catch {
+    return [];
   }
+}
+
+export function savePatients(list) {
+  localStorage.setItem(PATIENTS_KEY, JSON.stringify(list));
 }

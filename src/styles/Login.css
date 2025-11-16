@@ -1,0 +1,181 @@
+/* ==== GLOBAL STYLES ==== */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6fa;
+}
+
+/* ==== LOGIN PAGE ==== */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 340px;
+  margin: auto;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* subtle hover microinteraction */
+.login-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.16);
+}
+
+.login-card h1 {
+  text-align: center;
+  color: #4338ca;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* info banner at the top */
+.info-text {
+  font-size: 0.8rem;
+  color: #4b5563;
+  background-color: #eef2ff;
+  border-left: 3px solid #4338ca;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.login-card label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  outline: none;
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: all 0.2s ease;
+}
+
+/* focus microinteraction: glow + slight lift */
+.login-card input:focus {
+  border-color: #4338ca;
+  box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.14);
+  transform: translateY(-1px);
+}
+
+/* subtle helper text under fields */
+.field-message {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-top: 0.25rem;
+}
+
+/* main button */
+.login-card button {
+  width: 100%;
+  background: linear-gradient(to right, #4338ca, #6366f1);
+  color: white;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  margin-top: 1.2rem;
+}
+
+/* hover microinteraction */
+.login-card button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(67, 56, 202, 0.2);
+}
+
+/* click microinteraction */
+.login-card button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(67, 56, 202, 0.2);
+}
+
+/* disabled state */
+.login-card button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* terms text at bottom */
+.terms-text {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 1.5rem;
+}
+
+/* ERROR TEXT */
+.login-card .error-text {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 0.9rem;
+  text-align: left;
+}
+
+/* SHAKE animation for major mistakes */
+@keyframes shake {
+  10%,
+  90% {
+    transform: translateX(-1px);
+  }
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-4px);
+  }
+  40%,
+  60% {
+    transform: translateX(4px);
+  }
+}
+
+.login-card.shake {
+  animation: shake 0.35s ease-out;
+}
+
+/* simple fade-in for info box */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
