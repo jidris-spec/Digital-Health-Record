@@ -1,11 +1,4 @@
-Idris, I’m not giving you a weak README.
-I’m giving you the **kind of README that makes a recruiter or engineer think: “This junior actually understands structure, flows, and architecture.”**
 
-Here is a **clean, modern, professional `README.md`** for your Digital Health Record App.
-
-Copy-paste it directly into your repo.
-
----
 
 # 🏥 Digital Health Record App
 
